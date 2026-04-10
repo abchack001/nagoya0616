@@ -1,0 +1,1101 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>名古屋吉卜力之旅 🌿 4天3夜</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&family=Noto+Serif+TC:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --ghibli-green: #7FB069;
+            --ghibli-blue: #A2D2FF;
+            --ghibli-cream: #FFF8E8;
+            --ghibli-brown: #8B6F47;
+            --ghibli-orange: #FFB085;
+            --ghibli-sky: #C8E5F2;
+            --ghibli-grass: #6B9B37;
+        }
+
+        body {
+            font-family: 'Noto Serif TC', serif;
+            background: linear-gradient(180deg, #A2D2FF 0%, #FFF8E8 30%, #C8E5F2 70%, #FFB085 100%);
+            color: #4A4A4A;
+            line-height: 1.8;
+            position: relative;
+            min-height: 100vh;
+        }
+
+        /* 浮雲動畫 */
+        .clouds {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            z-index: 0;
+            overflow: hidden;
+        }
+
+        .cloud {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.6);
+            border-radius: 100px;
+            animation: float-cloud 60s linear infinite;
+        }
+
+        .cloud::before,
+        .cloud::after {
+            content: '';
+            position: absolute;
+            background: rgba(255, 255, 255, 0.6);
+            border-radius: 100px;
+        }
+
+        .cloud1 {
+            width: 100px;
+            height: 40px;
+            top: 10%;
+            left: -100px;
+        }
+
+        .cloud1::before {
+            width: 50px;
+            height: 50px;
+            top: -25px;
+            left: 10px;
+        }
+
+        .cloud1::after {
+            width: 60px;
+            height: 40px;
+            top: -20px;
+            right: 10px;
+        }
+
+        .cloud2 {
+            width: 120px;
+            height: 50px;
+            top: 25%;
+            left: -120px;
+            animation-delay: 20s;
+        }
+
+        .cloud2::before {
+            width: 60px;
+            height: 60px;
+            top: -30px;
+            left: 15px;
+        }
+
+        .cloud2::after {
+            width: 70px;
+            height: 50px;
+            top: -25px;
+            right: 15px;
+        }
+
+        .cloud3 {
+            width: 90px;
+            height: 35px;
+            top: 50%;
+            left: -90px;
+            animation-delay: 40s;
+        }
+
+        .cloud3::before {
+            width: 45px;
+            height: 45px;
+            top: -22px;
+            left: 12px;
+        }
+
+        .cloud3::after {
+            width: 55px;
+            height: 35px;
+            top: -18px;
+            right: 12px;
+        }
+
+        @keyframes float-cloud {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(calc(100vw + 200px));
+            }
+        }
+
+        /* 飛鳥動畫 */
+        .birds {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            z-index: 0;
+            overflow: hidden;
+        }
+
+        .bird {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            animation: fly 15s linear infinite;
+        }
+
+        .bird::before,
+        .bird::after {
+            content: '';
+            position: absolute;
+            width: 15px;
+            height: 2px;
+            background: rgba(75, 75, 75, 0.5);
+            border-radius: 2px;
+        }
+
+        .bird::before {
+            transform: rotate(-30deg);
+            left: -5px;
+        }
+
+        .bird::after {
+            transform: rotate(30deg);
+            right: -5px;
+        }
+
+        .bird1 {
+            top: 15%;
+            left: -30px;
+            animation-delay: 0s;
+        }
+
+        .bird2 {
+            top: 35%;
+            left: -30px;
+            animation-delay: 5s;
+        }
+
+        .bird3 {
+            top: 60%;
+            left: -30px;
+            animation-delay: 10s;
+        }
+
+        @keyframes fly {
+            0% {
+                transform: translateX(0) translateY(0);
+            }
+            50% {
+                transform: translateX(50vw) translateY(-30px);
+            }
+            100% {
+                transform: translateX(100vw) translateY(0);
+            }
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* 頁首 */
+        header {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding: 3rem 2rem;
+            background: rgba(255, 248, 232, 0.95);
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            position: relative;
+            border: 3px solid var(--ghibli-green);
+        }
+
+        .main-title {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--ghibli-grass);
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 0px rgba(162, 210, 255, 0.3);
+        }
+
+        .subtitle {
+            font-size: 1.3rem;
+            color: var(--ghibli-brown);
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+
+        .travel-info {
+            font-size: 1.1rem;
+            color: #666;
+            margin-top: 1rem;
+        }
+
+        .travelers-tag {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--ghibli-green), var(--ghibli-blue));
+            color: white;
+            padding: 0.6rem 1.8rem;
+            border-radius: 25px;
+            font-size: 1.1rem;
+            margin-top: 1rem;
+            font-weight: 600;
+            box-shadow: 0 4px 15px rgba(127, 176, 105, 0.4);
+        }
+
+        /* 總覽區 */
+        .overview {
+            background: rgba(255, 248, 232, 0.95);
+            border: 3px solid var(--ghibli-orange);
+            border-radius: 20px;
+            padding: 2.5rem;
+            margin-bottom: 3rem;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .overview-title {
+            font-size: 2rem;
+            color: var(--ghibli-grass);
+            text-align: center;
+            margin-bottom: 2rem;
+            font-weight: 700;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+        }
+
+        .info-box {
+            background: linear-gradient(135deg, rgba(200, 229, 242, 0.4), rgba(255, 248, 232, 0.6));
+            border: 2px solid var(--ghibli-blue);
+            border-radius: 15px;
+            padding: 1.8rem;
+            transition: all 0.3s ease;
+        }
+
+        .info-box:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+            border-color: var(--ghibli-green);
+        }
+
+        .info-box h3 {
+            font-size: 1.2rem;
+            color: var(--ghibli-grass);
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .info-box p {
+            color: #555;
+            font-size: 1rem;
+            line-height: 1.9;
+        }
+
+        /* Day 卡片 */
+        .day-card {
+            background: rgba(255, 248, 232, 0.95);
+            border: 3px solid var(--ghibli-green);
+            border-radius: 20px;
+            padding: 2.5rem;
+            margin-bottom: 2.5rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .day-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.18);
+        }
+
+        .day-badge {
+            position: absolute;
+            top: -18px;
+            left: 30px;
+            background: linear-gradient(135deg, var(--ghibli-green), var(--ghibli-grass));
+            color: white;
+            padding: 0.7rem 1.8rem;
+            border-radius: 25px;
+            font-weight: 700;
+            font-size: 1.2rem;
+            box-shadow: 0 5px 15px rgba(107, 155, 55, 0.4);
+        }
+
+        .day-header {
+            margin-bottom: 1.5rem;
+        }
+
+        .day-title {
+            font-size: 1.8rem;
+            color: var(--ghibli-grass);
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+
+        .day-subtitle {
+            font-size: 1.2rem;
+            color: var(--ghibli-brown);
+            font-weight: 500;
+        }
+
+        /* 展開收縮按鈕 */
+        .collapse-toggle {
+            background: linear-gradient(135deg, var(--ghibli-green), var(--ghibli-grass));
+            color: white;
+            border: none;
+            padding: 0.9rem 1.8rem;
+            border-radius: 25px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            margin-top: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.7rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(107, 155, 55, 0.4);
+            width: 100%;
+            justify-content: center;
+            font-family: 'Noto Sans TC', sans-serif;
+        }
+
+        .collapse-toggle:hover {
+            background: linear-gradient(135deg, #6B9B37, #5A8230);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(107, 155, 55, 0.5);
+        }
+
+        .collapse-toggle .arrow {
+            transition: transform 0.3s ease;
+            font-size: 1.3rem;
+        }
+
+        .collapse-toggle.expanded .arrow {
+            transform: rotate(180deg);
+        }
+
+        .activities-container {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease-out;
+        }
+
+        .activities-container.expanded {
+            max-height: 5000px;
+            transition: max-height 0.8s ease-in;
+        }
+
+        /* 活動列表 */
+        .activities {
+            list-style: none;
+            margin-top: 1.5rem;
+        }
+
+        .activity {
+            background: rgba(200, 229, 242, 0.3);
+            border-left: 4px solid var(--ghibli-orange);
+            border-radius: 0 12px 12px 0;
+            padding: 1.2rem 1.5rem;
+            margin: 1rem 0;
+            transition: all 0.3s ease;
+        }
+
+        .activity:hover {
+            background: rgba(255, 176, 133, 0.2);
+            border-left-color: var(--ghibli-green);
+            transform: translateX(10px);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .activity-time {
+            display: inline-block;
+            background: var(--ghibli-blue);
+            color: white;
+            padding: 0.4rem 0.9rem;
+            border-radius: 18px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            font-family: 'Noto Sans TC', sans-serif;
+        }
+
+        .activity-name {
+            font-size: 1.1rem;
+            color: #333;
+            font-weight: 500;
+            line-height: 1.7;
+        }
+
+        .activity-duration {
+            display: inline-block;
+            background: rgba(255, 176, 133, 0.4);
+            color: var(--ghibli-brown);
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.85rem;
+            margin-left: 0.5rem;
+            border: 1px solid var(--ghibli-orange);
+            font-weight: 600;
+            font-family: 'Noto Sans TC', sans-serif;
+        }
+
+        .activity-note {
+            font-size: 0.95rem;
+            color: var(--ghibli-grass);
+            margin-top: 0.5rem;
+            padding-left: 1rem;
+            border-left: 2px solid var(--ghibli-green);
+            font-style: italic;
+        }
+
+        /* 住宿 */
+        .accommodation {
+            background: linear-gradient(135deg, rgba(255, 176, 133, 0.2), rgba(200, 229, 242, 0.3));
+            border: 2px solid var(--ghibli-orange);
+            border-radius: 12px;
+            padding: 1rem 1.5rem;
+            margin-top: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .accommodation::before {
+            content: '🏠';
+            font-size: 1.8rem;
+        }
+
+        .accommodation-text {
+            font-size: 1.1rem;
+            color: var(--ghibli-brown);
+            font-weight: 600;
+        }
+
+        /* 裝飾分隔線 */
+        .divider {
+            text-align: center;
+            margin: 3rem 0;
+            font-size: 2rem;
+            color: var(--ghibli-green);
+        }
+
+        /* 頁尾 */
+        footer {
+            text-align: center;
+            padding: 3rem 0;
+            margin-top: 4rem;
+            background: rgba(255, 248, 232, 0.95);
+            border-radius: 20px;
+            border-top: 3px solid var(--ghibli-green);
+        }
+
+        .footer-text {
+            font-size: 1.2rem;
+            color: var(--ghibli-brown);
+            font-weight: 500;
+            margin-bottom: 1rem;
+        }
+
+        /* 響應式 */
+        @media (max-width: 768px) {
+            .main-title {
+                font-size: 2rem;
+            }
+
+            .info-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .day-title {
+                font-size: 1.4rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 浮雲 -->
+    <div class="clouds">
+        <div class="cloud cloud1"></div>
+        <div class="cloud cloud2"></div>
+        <div class="cloud cloud3"></div>
+    </div>
+
+    <!-- 飛鳥 -->
+    <div class="birds">
+        <div class="bird bird1"></div>
+        <div class="bird bird2"></div>
+        <div class="bird bird3"></div>
+    </div>
+
+    <div class="container">
+        <header>
+            <div class="main-title">名古屋吉卜力之旅</div>
+            <div class="subtitle">🌿 探索日本中部的悠然時光 🌿</div>
+            <div class="travel-info">2026年6月16日 - 6月19日</div>
+            <div class="travelers-tag">👫 雙人旅行</div>
+        </header>
+
+        <!-- 旅程總覽 -->
+        <div class="overview">
+            <h2 class="overview-title">旅程總覽</h2>
+            
+            <div class="info-grid">
+                <div class="info-box">
+                    <h3>✈️ 去程航班</h3>
+                    <p>
+                        2026年6月16日 (二)<br>
+                        桃園機場 → 名古屋中部國際機場<br>
+                        樂桃航空 MM722<br>
+                        01:55 → 05:50
+                    </p>
+                </div>
+
+                <div class="info-box">
+                    <h3>✈️ 回程航班</h3>
+                    <p>
+                        2026年6月19日 (五)<br>
+                        名古屋中部國際機場 → 桃園機場<br>
+                        樂桃航空 MM723<br>
+                        22:45 → 00:55 (跨日)
+                    </p>
+                </div>
+
+                <div class="info-box">
+                    <h3>🚇 交通方式</h3>
+                    <p>
+                        全程使用地鐵 & 巴士<br>
+                        名鐵電車往返機場與市區<br>
+                        市區地鐵暢遊名古屋
+                    </p>
+                </div>
+
+                <div class="info-box">
+                    <h3>🏨 住宿安排</h3>
+                    <p>
+                        6/16-6/19: 名古屋三井花園飯店<br>
+                        (3晚，含早餐)
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="divider">🌸 🍃 🌸</div>
+
+        <!-- Day 1 -->
+        <div class="day-card">
+            <div class="day-badge">第1天 🌅</div>
+            <div class="day-header">
+                <h2 class="day-title">DAY 1</h2>
+                <p class="day-subtitle">2026年6月16日 (二) - 抵達名古屋 · 大須商圈探索</p>
+            </div>
+            
+            <button class="collapse-toggle" onclick="toggleDay(this)">
+                <span>展開行程</span>
+                <span class="arrow">▼</span>
+            </button>
+
+            <div class="activities-container">
+                <ul class="activities">
+                    <li class="activity">
+                        <div class="activity-time">05:50 抵達</div>
+                        <div class="activity-name">抵達名古屋中部國際機場</div>
+                    </li>
+                    <li class="activity">
+                        <div class="activity-time">06:00 - 06:45</div>
+                        <div class="activity-name">
+                            入境、領取行李
+                            <span class="activity-duration">45分鐘</span>
+                        </div>
+                    </li>
+                    <li class="activity">
+                        <div class="activity-time">06:45 - 07:30</div>
+                        <div class="activity-name">
+                            常滑招財貓拍照
+                            <span class="activity-duration">45分鐘</span>
+                        </div>
+                        <div class="activity-note">巨大招財貓「常滑のとこにゃん」，必拍景點</div>
+                    </li>
+                    <li class="activity">
+                        <div class="activity-time">07:30 - 08:00</div>
+                        <div class="activity-name">
+                            步行前往常滑 Costco
+                            <span class="activity-duration">30分鐘</span>
+                        </div>
+                    </li>
+                    <li class="activity">
+                        <div class="activity-time">08:00 - 09:30</div>
+                        <div class="activity-name">
+                            常滑 Costco 購買行李箱
+                            <span class="activity-duration">1.5小時</span>
+                        </div>
+                        <div class="activity-note">採購旅行用品</div>
+                    </li>
+                    <li class="activity">
+                        <div class="activity-time">09:45 - 10:30</div>
+                        <div class="activity-name">
+                            搭乘名鐵前往名鐵名古屋站
+                            <span class="activity-duration">45分鐘</span>
+                        </div>
+                    </li>
+                    <li class="activity">
+                        <div class="activity-time">10:45 - 11:00</div>
+                        <div class="activity-name">
+                            前往飯店寄放行李
+                            <span class="activity-duration">15分鐘</span>
+                        </div>
+                    </li>
+                    <li class="activity">
+                        <div class="activity-time">11:15 - 12:00</div>
+                        <div class="activity-name">
+                            DEAN & DELUCA 名古屋店購物
+                            <span class="activity-duration">45分鐘</span>
+                        </div>
+                        <div class="activity-note">美式高質感食品雜貨店</div>
+                    </li>
+                    <li class="activity">
+                        <div class="activity-time">12:15 - 12:45</div>
+                        <div class="activity-name">
+                            前往大須觀音
+                            <span class="activity-duration">30分鐘</span>
+                        </div>
+                    </li>
+                    <li class="activity">
+                        <div class="activity-time">12:45 - 13:30</div>
+                        <div class="activity-name">
+                            大須觀音參拜
+                            <span class="activity-duration">45分鐘</span>
+                        </div>
+                        <div class="activity-note">名古屋三大寺院之一</div>
+                    </li>
+                    <li class="activity">
+                        <div class="activity-time">13:30 - 16:30</div>
+                        <div class="activity-name">
+                            大須觀音通商店街逛街
+                            <span class="activity-duration">3小時</span>
+                        </div>
+                        <div class="activity-note">📍 弁才天大福大須店（大福）</div>
+                        <div class="activity-note">📍 鳴門鯛焼本舗 大須仁王門通店（鯛魚燒）</div>
+                        <div class="activity-note">📍 手羽先むすめ 大須店（炸雞翅）</div>
+                    </li>
+                    <li class="activity">
+                        <div class="activity-time">16:45 - 17:00</div>
+                        <div class="activity-name">
+                            步行至上前津站搭地鐵
+                            <span class="activity-duration">15分鐘</span>
+                        </div>
+                    </li>
+                    <li class="activity">
+                        <div class="activity-time">17:15 - 19:00</div>
+                        <div class="activity-name">
+                            炭火焼肉 伏見屋 飛騨牛 別邸晚餐
+                            <span class="activity-duration">1小時45分</span>
+                        </div>
+                        <div class="activity-note">品嚐頂級飛驒牛燒肉</div>
+                    </li>
+                    <li class="activity">
+                        <div class="activity-time">19:15 - 20:15</div>
+                        <div class="activity-name">
+                            步行前往則武之森參觀
+                            <span class="activity-duration">1小時</span>
+                        </div>
+                        <div class="activity-note">日本陶瓷品牌博物館，夜間點燈美景</div>
+                    </li>
+                    <li class="activity">
+                        <div class="activity-time">20:30 - 20:50</div>
+                        <div class="activity-name">
+                            步行返回名古屋車站
+                            <span class="activity-duration">20分鐘</span>
+                        </div>
+                    </li>
+                    <li class="activity">
+                        <div class="activity-time">21:00 - 21:45</div>
+                        <div class="activity-name">
+                            Sky Promenade 展望台看夜景
+                            <span class="activity-duration">45分鐘</span>
+                        </div>
+                        <div class="activity-note">名古屋車站46樓戶外展望台，360度夜景</div>
+                    </li>
+                    <li class="activity">
+                        <div class="activity-time">22:00 - 22:45</div>
+                        <div class="activity-name">
+                            Max Value 太閣店購物
+                            <span class="activity-duration">45分鐘</span>
+                        </div>
+                        <div class="activity-note">超市採購零食飲料</div>
+                    </li>
+                    <li class="activity">
+                        <div class="activity-time">23:00 返回</div>
+                        <div class="activity-name">返回飯店休息</div>
+                    </li>
+                </ul>
+                <div class="accommodation">
+                    <span class="accommodation-text">住宿：名古屋三井花園飯店（含早餐）</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Day 2 -->
+        <div class="day-card">
+            <div class="day-badge">第2天 🐬</div>
+            <div class="day-header">
+                <h2 class="day-title">DAY 2</h2>
+                <p class="day-subtitle">2026年6月17日 (三) - 名古屋水族館 · 綠洲21</p>
+            </div>
+            
+            <button class="collapse-toggle" onclick="toggleDay(this)">
+                <span>展開行程</span>
+                <span class="arrow">▼</span>
+            </button>
+
+            <div class="activities-container">
+                <ul class="activities">
+                    <li class="activity">
+                        <div class="activity-time">08:00 - 09:00</div>
+                        <div class="activity-name">
+                            飯店享用早餐
+                            <span class="activity-duration">1小時</span>
+                        </div>
+                    </li>
+                    <li class="activity">
+                        <div class="activity-time">09:00 - 09:30</div>
+                        <div class="activity-name">
+                            前往名古屋港水族館
+                            <span class="activity-duration">30分鐘</span>
+                        </div>
+                    </li>
+                    <li class="activity">
+                        <div class="activity-time">09:30 - 16:00</div>
+                        <div class="activity-name">
+                            名古屋港水族館一日遊
+                            <span class="activity-duration">全日6.5小時</span>
+                        </div>
+                        <div class="activity-note">🐬 海豚表演（每日多場次）</div>
+                        <div class="activity-note">🐧 企鵝館（南極企鵝）</div>
+                        <div class="activity-note">🐟 沙丁魚龍捲風（沙丁魚群游動奇景）</div>
+                        <div class="activity-note">🐋 虎鯨、白鯨等海洋生物</div>
+                    </li>
+                    <li class="activity">
+                        <div class="activity-time">12:30 - 13:30</div>
+                        <div class="activity-name">
+                            水族館內午餐
+                            <span class="activity-duration">1小時</span>
+                        </div>
+                    </li>
+                    <li class="activity">
+                        <div class="activity-time">16:00 - 17:00</div>
+                        <div class="activity-name">
+                            南極觀測船「ふじ」參觀
+                            <span class="activity-duration">1小時</span>
+                        </div>
+                        <div class="activity-note">退役破冰船，可登船參觀</div>
+                    </li>
+                    <li class="activity">
+                        <div class="activity-time">17:15 - 17:45</div>
+                        <div class="activity-name">
+                            搭乘名鐵前往榮町站
+                            <span class="activity-duration">30分鐘</span>
+                        </div>
+                    </li>
+                    <li class="activity">
+                        <div class="activity-time">17:45 - 19:30</div>
+                        <div class="activity-name">
+                            綠洲21參觀
+                            <span class="activity-duration">1小時45分</span>
+                        </div>
+                        <div class="activity-note">水之宇宙船，未來感十足的玻璃建築</div>
+                        <div class="activity-note">屋頂水盤步道散步，欣賞中部電視塔夜景</div>
+                    </li>
+                    <li class="activity">
+                        <div class="activity-time">19:30 - 20:30</div>
+                        <div class="activity-name">
+                            中部電視塔參觀
+                            <span class="activity-duration">1小時</span>
+                        </div>
+                        <div class="activity-note">名古屋地標，90公尺高空展望台</div>
+                    </li>
+                    <li class="activity">
+                        <div class="activity-time">20:45 返回</div>
+                        <div class="activity-name">返回飯店休息</div>
+                    </li>
+                </ul>
+                <div class="accommodation">
+                    <span class="accommodation-text">住宿：名古屋三井花園飯店（含早餐）</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Day 3 -->
+        <div class="day-card">
+            <div class="day-badge">第3天 🏯</div>
+            <div class="day-header">
+                <h2 class="day-title">DAY 3</h2>
+                <p class="day-subtitle">2026年6月18日 (四) - 郡上八幡城下町一日遊</p>
+            </div>
+            
+            <button class="collapse-toggle" onclick="toggleDay(this)">
+                <span>展開行程</span>
+                <span class="arrow">▼</span>
+            </button>
+
+            <div class="activities-container">
+                <ul class="activities">
+                    <li class="activity">
+                        <div class="activity-time">07:30 - 08:30</div>
+                        <div class="activity-name">
+                            飯店享用早餐
+                            <span class="activity-duration">1小時</span>
+                        </div>
+                    </li>
+                    <li class="activity">
+                        <div class="activity-time">08:40 出發</div>
+                        <div class="activity-name">名鐵巴士總站搭乘高速巴士前往郡上八幡</div>
+                    </li>
+                    <li class="activity">
+                        <div class="activity-time">10:15 抵達</div>
+                        <div class="activity-name">抵達郡上八幡城下町</div>
+                    </li>
+                    <li class="activity">
+                        <div class="activity-time">10:15 - 12:00</div>
+                        <div class="activity-name">
+                            郡上八幡城參觀
+                            <span class="activity-duration">1小時45分</span>
+                        </div>
+                        <div class="activity-note">天空之城，日本最古老木造重建天守閣</div>
+                        <div class="activity-note">登城眺望郡上八幡市街全景</div>
+                    </li>
+                    <li class="activity">
+                        <div class="activity-time">12:15 - 13:45</div>
+                        <div class="activity-name">
+                            新橋亭午餐
+                            <span class="activity-duration">1.5小時</span>
+                        </div>
+                        <div class="activity-note">品嚐郡上八幡名物料理</div>
+                    </li>
+                    <li class="activity">
+                        <div class="activity-time">13:45 - 14:30</div>
+                        <div class="activity-name">
+                            郡上八幡旧庁舎記念館參觀
+                            <span class="activity-duration">45分鐘</span>
+                        </div>
+                        <div class="activity-note">了解郡上舞的歷史文化</div>
+                    </li>
+                    <li class="activity">
+                        <div class="activity-time">14:30 - 15:30</div>
+                        <div class="activity-name">
+                            食物模型工坊體驗
+                            <span class="activity-duration">1小時</span>
+                        </div>
+                        <div class="activity-note">郡上八幡是日本食品模型發祥地</div>
+                        <div class="activity-note">可親手製作食物模型</div>
+                    </li>
+                    <li class="activity">
+                        <div class="activity-time">15:30 - 15:50</div>
+                        <div class="activity-name">
+                            宗祇水參觀
+                            <span class="activity-duration">20分鐘</span>
+                        </div>
+                        <div class="activity-note">日本名水百選第一號，清澈泉水</div>
+                    </li>
+                    <li class="activity">
+                        <div class="activity-time">15:50 - 16:00</div>
+                        <div class="activity-name">
+                            宗祇庵吃點心
+                            <span class="activity-duration">10分鐘</span>
+                        </div>
+                        <div class="activity-note">抹茶與和菓子</div>
+                    </li>
+                    <li class="activity">
+                        <div class="activity-time">16:10 出發</div>
+                        <div class="activity-name">搭乘高速巴士返回名鐵巴士總站</div>
+                    </li>
+                    <li class="activity">
+                        <div class="activity-time">17:45 抵達</div>
+                        <div class="activity-name">抵達名古屋</div>
+                    </li>
+                    <li class="activity">
+                        <div class="activity-time">18:00 返回</div>
+                        <div class="activity-name">返回飯店休息</div>
+                    </li>
+                </ul>
+                <div class="accommodation">
+                    <span class="accommodation-text">住宿：名古屋三井花園飯店（含早餐）</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Day 4 -->
+        <div class="day-card">
+            <div class="day-badge">第4天 🦅</div>
+            <div class="day-header">
+                <h2 class="day-title">DAY 4</h2>
+                <p class="day-subtitle">2026年6月19日 (五) - 熱田神宮 · 返程回家</p>
+            </div>
+            
+            <button class="collapse-toggle" onclick="toggleDay(this)">
+                <span>展開行程</span>
+                <span class="arrow">▼</span>
+            </button>
+
+            <div class="activities-container">
+                <ul class="activities">
+                    <li class="activity">
+                        <div class="activity-time">08:30 - 09:30</div>
+                        <div class="activity-name">
+                            飯店享用早餐
+                            <span class="activity-duration">1小時</span>
+                        </div>
+                    </li>
+                    <li class="activity">
+                        <div class="activity-time">10:00 退房</div>
+                        <div class="activity-name">名古屋三井花園飯店 CHECK OUT</div>
+                    </li>
+                    <li class="activity">
+                        <div class="activity-time">10:15 - 10:45</div>
+                        <div class="activity-name">
+                            搭乘名鐵前往神宮前站
+                            <span class="activity-duration">30分鐘</span>
+                        </div>
+                    </li>
+                    <li class="activity">
+                        <div class="activity-time">11:00 - 11:30</div>
+                        <div class="activity-name">
+                            抵達篷萊軒本店排隊
+                            <span class="activity-duration">30分鐘</span>
+                        </div>
+                        <div class="activity-note">提前排隊，確保11:30可以用餐</div>
+                    </li>
+                    <li class="activity">
+                        <div class="activity-time">11:30 - 13:00</div>
+                        <div class="activity-name">
+                            篷萊軒本店鰻魚飯午餐
+                            <span class="activity-duration">1.5小時</span>
+                        </div>
+                        <div class="activity-note">名古屋必吃鰻魚飯三吃</div>
+                    </li>
+                    <li class="activity">
+                        <div class="activity-time">13:15 - 14:30</div>
+                        <div class="activity-name">
+                            熱田神宮參拜
+                            <span class="activity-duration">1小時15分</span>
+                        </div>
+                        <div class="activity-note">日本三大神宮之一，供奉草薙神劍</div>
+                        <div class="activity-note">參拜本宮、寶物館</div>
+                    </li>
+                    <li class="activity">
+                        <div class="activity-time">14:45 - 15:30</div>
+                        <div class="activity-name">
+                            搭乘名鐵前往中部國際機場
+                            <span class="activity-duration">45分鐘</span>
+                        </div>
+                    </li>
+                    <li class="activity">
+                        <div class="activity-time">15:30 - 16:30</div>
+                        <div class="activity-name">
+                            Flight of Dreams 波音博物館參觀
+                            <span class="activity-duration">1小時</span>
+                        </div>
+                        <div class="activity-note">波音787實機展示、互動展覽</div>
+                    </li>
+                    <li class="activity">
+                        <div class="activity-time">16:45 - 17:15</div>
+                        <div class="activity-name">
+                            機場4樓 えびせんべいの里買蝦餅
+                            <span class="activity-duration">30分鐘</span>
+                        </div>
+                        <div class="activity-note">名古屋名產，多種口味蝦餅試吃選購</div>
+                    </li>
+                    <li class="activity">
+                        <div class="activity-time">17:30 - 19:00</div>
+                        <div class="activity-name">
+                            矢場丼豬排機場店晚餐
+                            <span class="activity-duration">1.5小時</span>
+                        </div>
+                        <div class="activity-note">名古屋必吃味噌豬排飯</div>
+                    </li>
+                    <li class="activity">
+                        <div class="activity-time">19:30 - 22:30</div>
+                        <div class="activity-name">
+                            辦理登機手續、退稅、逛免稅店
+                            <span class="activity-duration">3小時</span>
+                        </div>
+                    </li>
+                    <li class="activity">
+                        <div class="activity-time">22:45 起飛</div>
+                        <div class="activity-name">中部國際機場起飛返台</div>
+                    </li>
+                    <li class="activity">
+                        <div class="activity-time">00:55 抵達</div>
+                        <div class="activity-name">抵達桃園國際機場（6/20凌晨）</div>
+                        <div class="activity-note">🌿 帶著滿滿的回憶回家！</div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="divider">🌸 🍃 🌸</div>
+
+        <footer>
+            <p class="footer-text">願這趟名古屋之旅留下最美好的回憶</p>
+            <p style="font-size: 1rem; color: var(--ghibli-brown); margin-top: 0.5rem;">
+                4天3夜 · 水族館 · 古城 · 美食 · 文化體驗
+            </p>
+        </footer>
+    </div>
+
+    <script>
+        // Toggle day activities
+        function toggleDay(button) {
+            const container = button.nextElementSibling;
+            const isExpanded = container.classList.contains('expanded');
+            
+            if (isExpanded) {
+                container.classList.remove('expanded');
+                button.classList.remove('expanded');
+                button.querySelector('span:first-child').textContent = '展開行程';
+            } else {
+                container.classList.add('expanded');
+                button.classList.add('expanded');
+                button.querySelector('span:first-child').textContent = '收起行程';
+            }
+        }
+
+        // Smooth scroll animation
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '0';
+                    entry.target.style.transform = 'translateY(20px)';
+                    
+                    setTimeout(() => {
+                        entry.target.style.transition = 'all 0.6s ease-out';
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }, 100);
+                }
+            });
+        }, observerOptions);
+
+        const dayCards = document.querySelectorAll('.day-card');
+        dayCards.forEach(card => observer.observe(card));
+    </script>
+</body>
+</html>
